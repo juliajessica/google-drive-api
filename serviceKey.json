@@ -1,12 +1,12 @@
 {
   "type": "service_account",
-  "project_id": "atlantean-stone-212820",
-  "private_key_id": "cff6811df08a232d242f4212cc65fd2bf5f3679a",
-  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDHHGioMBR/bNIp\nrbEz/R+1Slzxz3DUa+ZJQpHzICHuHJRBscHFXM9wMCDv+yYxYy75dUd9TXf1MGGA\nRRBV128rICN28aCwAD1Kn05vk1z1qTIkMQ2CbH0DPoO8ks8JewoVnXNTEcPyXnsc\nmqRMdHBf6+t302sj/vaAa0uj3TAAVpKDwURb0OkKBVjovK171kWOF7QROk3WxtDq\nfr42h9JSSz+Qh7XEar1THRbnAfujyV6TPqe3asbqOmxgreFPkKNm4+YzDH4ELsWT\nCRjnqBFOxxy8uqiJwwF4xZZSeorMPdwdFt4JJiKBiMJZbwyO9OOqfq0xSWQ5g83m\nppHiYDVjAgMBAAECggEACJHCByn2lD5KguezDR8TXw42IqnuxKCWM+sP9Lql/KVf\n9tV8/4M2BQ6PZ0BUB7TA9GYDRsoptWMtK3KB21Z8Kn99AuUYV8IYsqnlBJ/cPWhv\njbNLTiSmWxhX0qrplqmM11UKCaTOaZ84i06Rb2QHtTKapqGJciiQajFREpSwOJiF\nBNOU2stoXZOj46tbnZDnu4IL7+AocJhXrDfN6hnDJJV7TD5YSBzc8I9LevLqHs79\ngwgqERdW3bSsKNIZ9lKMyMYdKX3ZDyURvBBTK7KZ/oRX7fBJVluIjJiJZSKTtauQ\n0VuDx5C4IcT9RIEUiuBFU24y92hhSp2crABQ6g8vwQKBgQD2HQsLS3hTkuVUfxs0\nVJB7F94Fd/mCwVZpAqxfyKUuRjy5WWKoQR33GYpArSykvgPRYz4Rl8b1sIwA+nEW\nh5rUCbgdsIbg7lAiALy/S1ibjZIvTUI4rRY/v/6+pvz9lPwoyhZJXuBcZXhcTFWD\nZQdMSa9KfH6dQh03e6iwq1mcowKBgQDPHAGcyeAFpLQAkHZbQ0VCrb3eQ3eLCory\nGbJzPzW15DjQLXtzchM9SBg+aPGdDmf35VTGYIe/Qj8a4NxnIuwgQq6hJJh7ssi0\n0g1yo1LkOIshcu7LFaGD0savv4828hJZWYxS7AusR+YgFlm+u7pgHo96fQIxjJqy\nC18xC+nQQQKBgQC73kGu9oY8bZanoHs4wBCmFfsB+6o4OLNoZ4UDfNsybqUt62CX\nBVYFaLaTVl4Mx4uMi5A2x8A1jfXhTUuEIjF7CIxGBZmAHAqJWjy6XZ6e5zue5f/V\n2bJxKXMhP8FBJTgzPsgya70iasas1gw0x6sBfgHT/yJ7kptQ3hFQAwzdtwKBgAFU\nl7oPHe5LWZCrXOdHLlm4TgDwhAMTpULa4WeWH100wxyrPiDGudLp9KXp/KtanVZd\nVccUdarH3SnqCeBrvAKVCxQj7QrWYi2vL8DtxamLp3EmkNwjHm9/WiFk5KGgundy\neNFLjOOlbpgELL1p7U+Swq8xwGLbGV9NbWYeQnlBAoGBANWPmYqYnmu9F6Rf9cU3\n05g9QNA7hdS5QVs7Y2K4YS+VYs5yN5nkd7Oyv3JpXOgJbukj6RucfhtR+nHotcNc\niWz/bKdfp6HmJEpkrhAfndiqcSwiH+UK4AvJLFxxfjzMVoV3mpU9c3KK8kVmSX/p\nMhSVRsp8OwPCrrkhtKgKn0Gs\n-----END PRIVATE KEY-----\n",
-  "client_email": "pipeline-asset-tool@atlantean-stone-212820.iam.gserviceaccount.com",
-  "client_id": "108745519792495607443",
+  "project_id": "ADD YOUR KEYS HERE",
+  "private_key_id": "ADD YOUR KEYS HERE",
+  "private_key": "ADD YOUR KEYS HERE",
+  "client_email": "ADD YOUR KEYS HERE",
+  "client_id": "ADD YOUR KEYS HERE",
   "auth_uri": "https://accounts.google.com/o/oauth2/auth",
   "token_uri": "https://oauth2.googleapis.com/token",
   "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
-  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/pipeline-asset-tool%40atlantean-stone-212820.iam.gserviceaccount.com"
+  "client_x509_cert_url": "ADD YOUR KEYS HERE"
 }
