@@ -1,46 +1,44 @@
-const {google} = require('googleapis');
-const fs = require('fs');
-const key = require('./serviceKey.json');
+const authenticateAndUpload = require('./components');
 
-const drive = google.drive('v3');
-const jwtClient = new google.auth.JWT(
-  key.client_email,
-  null,
-  key.private_key,
-  ['https://www.googleapis.com/auth/drive'],
-  null
-);
-
-jwtClient.authorize((authErr) => {
-  if (authErr) {
-    console.log(authErr);
-    return;
-  }
+authenticateAndUpload();
 
 
-  const fileMetadata = {
-    name: 'helloWorld.txt'
-  };
-
-  const media = {
-    mimeType: 'text/plain',
-    body: fs.createReadStream('./helloWorld.txt')
-  };
-
-  drive.files.create({
-    auth: jwtClient,
-    resource: fileMetadata,
-    media,
-    fields: 'id'
-  }, (err, file) => {
-    if (err) {
-      console.log(err);
-      return;
-    }
-    // Log the id of the new file on Drive
-    console.log('Uploaded File Id: ', file.id);
-  });
-});
+// const {google} = require('googleapis');
+// const fs = require('fs');
+// //const key = require('./serviceKey.json');
+//
+// const drive = google.drive('v3');
+// // Target forlder for the Uploaded file. This must be shared with the service account.
+// //const folderId = "13EiYGFE6IeUkUGbFVc08KOqeijjbLHqr";
+//
+//
+// const jwtClient = new google.auth.JWT(
+//   key.client_email,
+//   null,
+//   key.private_key,
+//   ['https://www.googleapis.com/auth/drive'],
+//   null
+// );
+//
+// jwtClient.authorize((authErr) => {
+//   if (authErr) {
+//     console.log(authErr);
+//     return;
+//   }
+//
+//   // Make an authorized requests
+//
+//   // List Drive files.
+//   drive.files.list({ auth: jwtClient }, (listErr, resp) => {
+//     if (listErr) {
+//       console.log(listErr);
+//       return;
+//     }
+//     resp.files.forEach((file) => {
+//       console.log(`${file.name} (${file.mimeType})`);
+//     });
+//   });
+// });
 
 
 
