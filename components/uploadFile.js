@@ -1,16 +1,37 @@
 const {google} = require('googleapis');
-const {file} = require('../configuration/index.js');
+//const {file} = require('../configuration/index.js');
 const drive = google.drive('v3');
+const fs = require('fs');
+const path = require('path');
+const key = require('../serviceKey.json');
+const folderId = "1KYOaHA2PFyrE8GaTWDGMt87ndPFzRwWS";
+const file = '../testPhoto.jpeg';
+
+const fileDeets = {
+  file: {
+    metadata: {
+      name: 'photo.jpeg',
+      parents: [folderId],
+    },
+    media: {
+      mimeType: 'image/jpeg',
+      body: fs.createReadStream(path.join(__dirname, file))
+    }
+  }
+};
+
+//console.log('fileDeets', fileDeets);
 
 function uploadFile(jwtClient) {
   return new Promise((resolve, reject) => {
     drive.files.create({
       auth: jwtClient,
-      resource: file.metadata,
-      media: file.media,
+      resource: fileDeets.file.metadata,
+      media: fileDeets.file.media,
       fields: 'id'
     }, (err, uploadedFile) => {
       if (err) reject(err);
+      console.log('AUTH', jwtClient);
       // Promise is resolved with the result of create call
       resolve(uploadedFile);
     });
@@ -20,6 +41,95 @@ function uploadFile(jwtClient) {
 module.exports = uploadFile;
 
 
+
+
+// const {google} = require('googleapis');
+// const drive = google.drive('v3');
+// const fs = require('fs');
+// const path = require('path');
+// const key = require('../serviceKey.json');
+// const folderId = "1KYOaHA2PFyrE8GaTWDGMt87ndPFzRwWS";
+// const file = '../testPhoto.jpeg';
+//
+// const jwtClient = new google.auth.JWT(
+//   key.client_email,
+//   null,
+//   key.private_key,
+//   ['https://www.googleapis.com/auth/drive'],
+//   null
+// );
+//
+// /**
+//  * Authorize the service account to access shared drive folders
+//  * @return {Promise} Resolved with authorized jwtClient object
+//  */
+// function authorizeJWT() {
+//   return new Promise((resolve, reject) => {
+//     jwtClient.authorize(function (err, tokens) {  // eslint-disable-line
+//       if (err) {
+//         reject(err);
+//       }
+//       resolve(jwtClient);
+//     });
+//   });
+// };
+//
+//
+// //console.log({email: key.client_email, key: key.private_key})
+//
+// const fileDeets = {
+//   file: {
+//     metadata: {
+//       name: 'photo.jpeg',
+//       parents: [folderId],
+//     },
+//     media: {
+//       mimeType: 'image/jpeg',
+//       body: fs.createReadStream(path.join(__dirname, file))
+//     }
+//   }
+// };
+//
+// //console.log('fileDeets', fileDeets.file.metadata);
+//
+// let authAndCreatePromise = authorizeJWT().then(auth => {
+//     //console.log('BEGGGGGINNING', auth, 'ENNNNNND');
+//     return drive.files.list({
+//       auth,
+//       name: file.name
+//     })
+//   })
+//   function authenticateAndUpload() {
+//   authorizeJWT()
+//   .then(auth => {
+//     console.log('FILE AUTH', auth);
+//      return drive.files.list({
+//       auth,
+//       name: fileName
+//     })
+//   })
+//   //console.log(authAndCreatePromise);
+// // function uploadFile(auth) {
+//
+//   .then(auth => {
+//     authorizeJWT()
+//      const { files } = result.data;
+//     console.log('HIIIII', auth);
+//     console.log('FILES', files);
+//     //return new Promise((resolve, reject) => {
+//       drive.files.create({
+//         auth,
+//         resource: fileDeets.file.metadata,
+//         media: fileDeets.file.media,
+//         //fields: 'id'
+//       })
+//     })
+//   // })
+//   .catch(err => console.log(err));
+// }
+//
+// module.exports = authenticateAndUpload;
+// module.exports = authorizeJWT;
 
 
 

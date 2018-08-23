@@ -2,7 +2,6 @@
 //
 // authenticateAndUpload();
 
-
 const authorize = require('./components/auth.js');
 const uploadFile = require('./components/uploadFile.js');
 
