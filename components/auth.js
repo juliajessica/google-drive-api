@@ -1,6 +1,6 @@
 /* This module reads the key file and setups the authorization for the service account. */
 const {google} = require('googleapis');
-const config = require('../configuration');
+const config = require('../configuration/index.js');
 
 const jwtClient = new google.auth.JWT(
   config.key.client_email,
@@ -9,6 +9,8 @@ const jwtClient = new google.auth.JWT(
   ['https://www.googleapis.com/auth/drive'],
   null
 );
+
+console.log({email: config.key.client_email, key: config.key.private_key})
 
 /**
  * Authorize the service account to access shared drive folders
