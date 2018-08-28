@@ -10,7 +10,7 @@ const jwtClient = new google.auth.JWT(
   null
 );
 
-console.log({email: key.client_email, key: key.private_key})
+//console.log({email: key.client_email, key: key.private_key})
 
 /**
  * Authorize the service account to access shared drive folders
