@@ -18,12 +18,20 @@ const jwtClient = new google.auth.JWT(
  */
 function authorizeJWT() {
   return new Promise((resolve, reject) => {
-    jwtClient.authorize(function (err, tokens) {  // eslint-disable-line
-      if (err) {
-        reject(err);
-      }
-      resolve(jwtClient);
-    });
+    setTimeout(() => {
+      jwtClient.authorize(function (err, tokens) {  // eslint-disable-line
+        if (err) {
+          reject(err);
+        }
+        resolve(jwtClient);
+      });
+    }, 1000)
+    // jwtClient.authorize(function (err, tokens) {  // eslint-disable-line
+    //   if (err) {
+    //     reject(err);
+    //   }
+    //   resolve(jwtClient);
+    // });
   });
 }
 

@@ -8,6 +8,9 @@ const folderId = "1n7Z3Mfuv3-b82WrDHIDpga1FKsjFL_UB";
 const file = '../testPhoto.jpeg';
 //const jwtClient = require('./auth.js');
 const authorizeJWT = require('./auth.js');
+const uuidv4 = require('uuid/v4');
+const fileId = uuidv4();
+//const id = newUUID.toString();
 //console.log('jwtClient', jwtClient);
 
 const fileDeets = {
@@ -15,6 +18,8 @@ const fileDeets = {
     metadata: {
       name: 'photo.jpeg',
       parents: [folderId],
+      id: fileId,
+      //trashed: false
     },
     media: {
       mimeType: 'image/jpeg',
@@ -41,46 +46,46 @@ const fileDeets = {
 //   });
 // }
 
-function authenticateAndUpload() {
-  authorizeJWT()
-  .then(auth => {
+async function authenticateAndUpload() {
+  const auth = await authorizeJWT();
+  //console.log('async auth', auth);
+  authorizeJWT().then(auth => {
     //console.log('AUTH', auth);
      return drive.files.list({
       auth,
-      name: fileDeets.file.metadata,
+      name: file,
     })
   })
-  authorizeJWT()
   .then(result => {
-    //console.log('result', result);
-    //const { files } = result.data;
-    //console.log('bye', files);
+    const { files } = result.data;
+      //console.log('files', files);
     authorizeJWT()
-    for (let i= 0; i < fileDeets.length; i++) {
-      console.log('LIST OF FILES', fileDeets[i]);
-      authorizeJWT()
-        .then(auth => {
-          return drive.files.delete({
-            auth,
-            fileId: files[i].id,
-            trashed: true
-          })
-          console.log('trash', files);
+    for (let i= 0; i < files.length; i++) {
+      console.log('deleted file', files[i]);
+      console.log('deleted file ID', files[0].id);
+      //console.log('LIST OF FILES', files);
+        return drive.files.delete({
+          auth,
+          fileId: files[0].id,
+          trashed: true
         })
-     }
+      console.log('trash', files);
+    }
   })
-  authorizeJWT()
-  .then(auth => {
-    //const { files } = result.data;
-    //console.log('AUTH', auth);
-    console.log('hi', fileDeets.file.metadata);
-    return drive.files.create({
-      auth,
-      resource: fileDeets.file.metadata,
-      media: fileDeets.file.media,
-      fields: 'id'
-    })
-  })
+
+  // .then(result => {
+  //   const { files } = result.data;
+  //   console.log('hi', files);
+  //   authorizeJWT()
+  //   .then(auth => {
+  //     console.log('hi', files.name);
+  //     return drive.files.create({
+  //       auth,
+  //       name: files,
+  //       //trashed: false
+  //     })
+  //   })
+  // })
 
   .catch(err => console.log(err));
 }
